@@ -1,5 +1,4 @@
-const k8s = require('@kubernetes/client-node');
-
+import k8s from '@kubernetes/client-node'
 async function updateSecretValue(newValue) {
   try {
     const kc = new k8s.KubeConfig();
