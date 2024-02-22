@@ -60,6 +60,9 @@ jobs:
       - uses: Azure/k8s-set-context@v2
         with:
            kubeconfig: ${{ secrets.KUBE_CONFIG }}
+           
+      - name: Install dependencies
+        run: npm install dotenv @kubernetes/client-node
       
       - name: Kubernetes Secret Updater
         uses: punitkashyup/k8s-update-secrets@v1.0.2
@@ -131,6 +134,9 @@ jobs:
       - uses: Azure/k8s-set-context@v2
         with:
             kubeconfig: ${{ secrets.KUBE_CONFIG }}
+      
+      - name: Install dependencies
+        run: npm install dotenv @kubernetes/client-node
         
       - name: Kubernetes Secret Updater
         uses: punitkashyup/k8s-update-secrets@v1.0.2
