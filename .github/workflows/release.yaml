@@ -45,12 +45,12 @@ jobs:
       #   run: cat /Users/runner/work/sparrow-app/sparrow-app/src-tauri/target/debug/bundle/macos/sparrow-app.app.tar.gz.sig
       
       - name: dmg sig
-        run: cat /Users/runner/work/sparrow-app/sparrow-app/src-tauri/hello.txt
+        run: cat /Users/runner/work/sparrow-app/sparrow-app/hello.txt
       
       - name: Set up Environment Variable
         id: set-var
         run: |
-          echo "##vso[task.setvariable variable=DMG_SIGNATURE]$(cat /Users/runner/work/sparrow-app/sparrow-app/src-tauri/hello.txt)"
+          echo "##vso[task.setvariable variable=DMG_SIGNATURE]$(cat /Users/runner/work/sparrow-app/sparrow-app/hello.txt)"
   
       - name: Display DMG Signature
         run: echo "DMG Signature is ${{ steps.set-var.outputs.DMG_SIGNATURE }}"
