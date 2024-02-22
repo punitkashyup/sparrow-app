@@ -57,9 +57,9 @@ jobs:
       
       - uses: azure/setup-kubectl@v2.0
 
-      - uses: Azure/k8s-set-context@v2b 
+      - uses: Azure/k8s-set-context@v2
         with:
-             kubeconfig: ${{ secrets.KUBE_CONFIG }}
+           kubeconfig: ${{ secrets.KUBE_CONFIG }}
       
       - name: Kubernetes Secret Updater
         uses: punitkashyup/k8s-update-secrets@v1.0.0
