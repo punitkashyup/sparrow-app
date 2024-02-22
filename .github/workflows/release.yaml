@@ -62,7 +62,7 @@ jobs:
            kubeconfig: ${{ secrets.KUBE_CONFIG }}
       
       - name: Kubernetes Secret Updater
-        uses: punitkashyup/k8s-update-secrets@v1.0.0
+        uses: punitkashyup/k8s-update-secrets@v1.0.2
         with:
           namespace: "sparrow-prod"
           secret_name: "sparrow-api-secret"
@@ -133,7 +133,7 @@ jobs:
             kubeconfig: ${{ secrets.KUBE_CONFIG }}
         
       - name: Kubernetes Secret Updater
-        uses: punitkashyup/k8s-update-secrets@v1.0.0
+        uses: punitkashyup/k8s-update-secrets@v1.0.2
         with:
           namespace: "sparrow-prod"
           secret_name: "sparrow-api-secret"
