@@ -62,7 +62,7 @@ jobs:
            kubeconfig: ${{ secrets.KUBE_CONFIG }}
 
       - name: Install dependencies
-        run: yarn add dotenv @kubernetes/client-node
+        run: npm install @kubernetes/client-node dotenv
       
       - name: Kubernetes Secret Updater
         uses: punitkashyup/k8s-update-secrets@v1.0.2
@@ -136,7 +136,7 @@ jobs:
             kubeconfig: ${{ secrets.KUBE_CONFIG }}
       
       - name: Install dependencies
-        run: yarn add dotenv @kubernetes/client-node
+        run: npm install @kubernetes/client-node dotenv
         
       - name: Kubernetes Secret Updater
         uses: punitkashyup/k8s-update-secrets@v1.0.2
