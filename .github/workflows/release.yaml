@@ -51,6 +51,14 @@ jobs:
         id: set-var
         run: |
           echo "##vso[task.setvariable variable=DMG_SIGNATURE]$(cat /Users/runner/work/sparrow-app/sparrow-app/hello.txt)"
+      
+      - name: Set color
+        id: color-selector
+        run: echo "SELECTED_COLOR=$(cat /Users/runner/work/sparrow-app/sparrow-app/hello.txt)" >> "$GITHUB_OUTPUT"
+      - name: Get color
+        env:
+          SELECTED_COLOR: ${{ steps.color-selector.outputs.SELECTED_COLOR }}
+        run: echo "The selected color is $SELECTED_COLOR"
   
       - name: Display DMG Signature
         run: echo "DMG Signature is ${{ steps.set-var.outputs.DMG_SIGNATURE }}"
@@ -65,7 +73,7 @@ jobs:
         run: yarn add @kubernetes/client-node
      
       - name: Run JavaScript script
-        run: node ./build/script.js ${{ steps.set-var.outputs.DMG_SIGNATURE }}
+        run: node ./build/script.js $SELECTED_COLOR
             
           
       # - name: Upload mac-build to Azure Blob Storage
