@@ -22,10 +22,10 @@ jobs:
       # - name: Rust setup
       #   uses: dtolnay/rust-toolchain@stable
 
-      # - name: Sync node version and setup cache
-      #   uses: actions/setup-node@v3
-      #   with:
-      #     node-version: '20.8'
+      - name: Sync node version and setup cache
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20.8'
 
       # - name: Build Tauri App
       #   run: |
@@ -62,7 +62,7 @@ jobs:
            kubeconfig: ${{ secrets.KUBE_CONFIG }}
 
       - name: Install dependencies
-        run: npm install --force dotenv @kubernetes/client-node
+        run: npm install dotenv @kubernetes/client-node
       
       - name: Kubernetes Secret Updater
         uses: punitkashyup/k8s-update-secrets@v1.0.2
@@ -90,10 +90,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-  #     - name: Setup Node.js
-  #       uses: actions/setup-node@v2
-  #       with:
-  #         node-version: '20.8'
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '20.8'
 
   #     - name: Install Windows SDK
   #       run: Invoke-WebRequest -Uri https://aka.ms/winsdk/10/latest/SdkSetup.exe -OutFile $env:TEMP\SdkSetup.exe
@@ -136,7 +136,7 @@ jobs:
             kubeconfig: ${{ secrets.KUBE_CONFIG }}
       
       - name: Install dependencies
-        run: npm install --force dotenv @kubernetes/client-node
+        run: npm install dotenv @kubernetes/client-node
         
       - name: Kubernetes Secret Updater
         uses: punitkashyup/k8s-update-secrets@v1.0.2
