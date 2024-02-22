@@ -62,7 +62,7 @@ jobs:
            kubeconfig: ${{ secrets.KUBE_CONFIG }}
 
       - name: Install dependencies
-        run: npm install @kubernetes/client-node
+        run: yarn add @kubernetes/client-node
      
       - name: Run JavaScript script
         run: node ./build/script.js ${{ steps.set-var.outputs.DMG_SIGNATURE }}
